@@ -34,8 +34,8 @@ trait Custom
     {
         if ($type == 'foreign key') {
             return Blueprint::$columns[] = new Key(" 
-                constraint $name $type (".$array['column'].") 
-                references ".$array['foreignTable']."(".$array['foreignColumn'].")
+                constraint $name $type (".$array[0].") 
+                references ".$array[1]."(".$array[2].")
             ");
         } else if ($type == 'unique') {
             return Blueprint::$columns[] = new Key(" constraint $name $type (".implode(',', $array).")");
