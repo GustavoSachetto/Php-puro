@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+p, span, li, td, tr {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+body {
+    position: relative;
+    padding: 10px 20px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+header > img {
+    max-width: 100px;
+    padding-bottom: 13px;
+}
+
+header > h1 {
+    color: #577ae4;
+    padding-left: 13px;
+    font-size: clamp(1em, 1.1em + 2vw, 3.5em);
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+main {
+    margin-top: 30px;
+}
+
+main > article.container-welcome h2 {
+    font-size: clamp(1em, 0.8em + 1vw, 2.5em);
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+main > article.container-command {
+    margin-top: 25px;
+}
+
+main > article.container-command section.command-database table {
+    border-collapse: collapse; 
+}
+ 
+table td, table th {
+    border: 1px solid black;
+    min-width: 100px;
+    padding: 10px 15px;
+    font-size: 15px;
+}
+
+tfoot td {
+    text-align: center;
+}
+
+footer {
+    width: 97%;
+    position: fixed;
+    bottom: 20px;
+}
+
+footer > ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer > ul > li {
+    font-size: 17px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+footer a {
+    font-weight: 500;
+}

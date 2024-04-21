@@ -1,0 +1,7 @@
+<?php
+
+require __DIR__.'/includes/app.php';
+
+use App\Common\CommandLine\Command;
+
+Command::process();
