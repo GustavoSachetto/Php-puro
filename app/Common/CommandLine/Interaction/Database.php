@@ -31,13 +31,15 @@ class Database
     public static function setInteraction(string $type, string $dir): void
     {
         self::includeFiles($dir);
-        $interact = Interaction::$interactions;
+        $interactions = Interaction::$interactions;
 
-        for ($i=0; $i < count($interact); $i++) { 
-            $interact[$i]->$type();
-            echo "[success] $type: ".self::$fileName[$i]."\n";
+        if ($type == 'down') krsort($interactions);
+
+        foreach ($interactions as $key => $interact) {
+            $interact->$type();
+            echo "[success] $type: ".self::$fileName[$key]."\n";
         }
-        
+
         Interaction::clear();
     }
 
