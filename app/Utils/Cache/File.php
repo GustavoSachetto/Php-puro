@@ -61,7 +61,7 @@ class File
     /**
      * Método responsável por obter uma informação do cache
      */
-    public static function getCache(string $hash, int $expiration,Closure $function): mixed
+    public static function getCache(string $hash, int $expiration, Closure $function): mixed
     {
         if ($content = self::getContentCache($hash, $expiration)) {
             return $content;
