@@ -43,4 +43,13 @@ class Key
         $this->attributes .= " not null";
         return $this;
     }
+
+    /** 
+     * Método reponsável por gerar uma chave default
+    */
+    public function default(mixed $attributes): Key
+    {
+        $this->attributes .= " default {$attributes}";
+        return $this;
+    }
 }
