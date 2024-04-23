@@ -10,14 +10,11 @@ class User
     public int $id;
     
     public string $name;
-
     public string $email;
-
-    public bool $admin_access;
-
     public string $password_hash;
+    public bool $admin_access = false;
 
-    public bool|null $deleted = null;
+    public bool $deleted = false;
 
     /**
      * Método responsável por cadastrar a instância atual no banco de dados
@@ -25,11 +22,11 @@ class User
     public function create(): bool
     {
         $this->id = (new Database('user'))->insert([
-            'name'  => $this->name,
-            'email' => $this->email,
-            'admin_access' => $this->admin_access,
+            'name'          => $this->name,
+            'email'         => $this->email,
+            'admin_access'  => $this->admin_access,
             'password_hash' => $this->password_hash,
-            'deleted' => $this->deleted
+            'deleted'       => $this->deleted
         ]);
 
         return true;
@@ -41,11 +38,11 @@ class User
     public function update(): bool
     {
         return (new Database('user'))->update('id = '.$this->id, [
-            'name'  => $this->name,
-            'email' => $this->email,
-            'admin_access' => $this->admin_access,
+            'name'          => $this->name,
+            'email'         => $this->email,
+            'admin_access'  => $this->admin_access,
             'password_hash' => $this->password_hash,
-            'deleted' => $this->deleted
+            'deleted'       => $this->deleted
         ]);
     }
 
