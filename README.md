@@ -17,6 +17,7 @@ Principais duvidas sobre o framework:
 - [Configurar middlewares e outras coisas](#config)
   
 <a id="database"></a>
+
 ## Banco de dados
 ### Criação das tabelas
 O esquema do seu banco de dados deve ficar na pasta `database/schema`, onde todos os arquivos de tabelas devem estar separados na ordem de criação ASC.
@@ -70,6 +71,7 @@ __Exemplo método down:__
 ```
 
 <a id="comandos"></a>
+
 ## Comandos do Terminal
 
 Comandos relacionados ao banco de dados:
@@ -83,6 +85,7 @@ Comandos relacionados ao banco de dados:
 | php cli     | __--db__ | __fresh__    |	__Remove__ todas as informações na pasta `database/information` no banco de dados.         |
 
 <a id="rotas"></a>
+
 ## Rotas
 
 As rotas do framework ficam na pasta `routes` da aplicação. 
@@ -119,6 +122,7 @@ $obRouter->post('/url/exemplo', [
 ]);
 ```
 <a id="config"></a>
+
 ## Configuração
 
 O arquivo de configuração do framework fica na pasta `includes/app.php` da aplicação.
