@@ -58,13 +58,13 @@ __Exemplo método down:__
 
 Comandos relacionados ao banco de dados:
 
-| Base        | Comando              | Argumento    | Função                                                                                     |
-| :---------- | -------------------- | ------------ | :----------------------------------------------------------------------------------------- |
-| php cli     | __--db__ _or_ __-d__ | __set__      |	__Carrega__ todas as tabelas na pasta `database/schema` no banco de dados.                 |
-| php cli     | __--db__ _or_ __-d__ | __drop__     | __Dropa__ todas as tabelas na pasta `database/schema` no banco de dados.                   |
-| php cli     | __--db__ _or_ __-d__ | __reset__    |	__Recarrega__ todas as tabelas na pasta `database/schema` no banco de dados.               |
-| php cli     | __--db__ _or_ __-d__ | __load__     | __Insere__ todas as informações na pasta `database/information` para o banco de dados.     |
-| php cli     | __--db__ _or_ __-d__ | __fresh__    |	__Remove__ todas as informações na pasta `database/information` no banco de dados.         |
+| Base        | Comando  | Argumento    | Função                                                                                     |
+| :---------- | -------- | ------------ | :----------------------------------------------------------------------------------------- |
+| php cli     | __--db__ | __set__      |	__Carrega__ todas as tabelas na pasta `database/schema` no banco de dados.                 |
+| php cli     | __--db__ | __drop__     | __Dropa__ todas as tabelas na pasta `database/schema` no banco de dados.                   |
+| php cli     | __--db__ | __reset__    |	__Recarrega__ todas as tabelas na pasta `database/schema` no banco de dados.               |
+| php cli     | __--db__ | __load__     | __Insere__ todas as informações na pasta `database/information` para o banco de dados.     |
+| php cli     | __--db__ | __fresh__    |	__Remove__ todas as informações na pasta `database/information` no banco de dados.         |
 
 ## Rotas
 
