@@ -2,6 +2,8 @@
 Framework desenvolvido em PHP "puro" prezando a facilidade de trabalhar com a __programação orientada a objetos (POO)__ da versão 8.2.1 do PHP.
 Esse framework é constituido na arquitetura __Model View Controller (MVC)__ que promove a modularidade, escalabilidade e a manutenção.
 
+#framework #php #mvc
+
 <a name="ancora"></a>
 ## Documentação:
 Principais duvidas sobre o framework:
@@ -81,7 +83,7 @@ Comandos relacionados ao banco de dados:
 
 ## Rotas
 
-As rotas da framework ficam na pasta `routes` da aplicação. 
+As rotas do framework ficam na pasta `routes` da aplicação. 
 
 * Rotas permitidas: __GET, POST, PUT, DELETE e OPTIONS.__
 
@@ -103,11 +105,24 @@ $obRouter->put('/url/exemplo/{id}', [
 ]);
 ```
 
-## Config
+__Exemplo rota com middleware POST:__
+```
+$obRouter->post('/url/exemplo', [
+    'middlewares' => [
+        'basic-auth'
+    ],
+    function($request) {
+        return new Response(200, Pages\HomeController::set($request));
+    }
+]);
+```
 
-O arquivo de configuração do framework fica na pasta `includes` da aplicação.
+## Configuração
+
+O arquivo de configuração do framework fica na pasta `includes/app.php` da aplicação.
 
 __No arquivo app.php é configurado:__
+
 * Autoload das classes
 * Load das Variáveis de ambiente (arquivo .env)
 * Configuração do banco de dados
@@ -116,3 +131,5 @@ __No arquivo app.php é configurado:__
 * Define as variáveis constantes da View
 * Define o map dos middlewares das rotas
 * Seta os middlewares globais (padrão) de todas as rotas.
+  
+**********************************************
