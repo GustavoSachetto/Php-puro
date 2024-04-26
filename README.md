@@ -10,9 +10,7 @@ Principais duvidas sobre o framework:
 
 - [Como definir rotas](#rotas)
 - [Comandos do terminal](#comandos)
-- [Como criar uma model](#ancora4)
-- [Como renderizar uma view](#ancora4)
-- [Como montar um Controller](#ancora4)
+- [Como montar um Controller](#controller)
 - [Como criar tabelas no banco de dados](#database)
 - [Configurar middlewares e outras coisas](#config)
   
@@ -122,6 +120,20 @@ $obRouter->post('/url/exemplo', [
     }
 ]);
 ```
+
+<a id="controller"></a>
+
+## Controller
+
+Os controllers devem ficar dentro da pasta `app/Controller`.
+
+Todo controller tem 5 métodos por padrão:
+* __get__ - retorna um valor padrão do controller
+* __fetch__ - busca um valor específico do controller por algum ID
+* __set__ - cadastra valores no controller
+* __edit__ - edita valores no controller
+* __delete__ - deleta valores no controller
+
 <a id="config"></a>
 
 ## Configuração
