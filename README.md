@@ -73,11 +73,11 @@ __Exemplo método down:__
 
 Comandos relacionados ao banco de dados:
 
-<a id="rotas"></a>
 | Base        | Comando  | Argumento    | Função                                                                                     |
 | :---------- | -------- | ------------ | :----------------------------------------------------------------------------------------- |
 | php cli     | __--db__ | __set__      |	__Carrega__ todas as tabelas `database/schema` no banco de dados.                 |
 | php cli     | __--db__ | __drop__     | __Dropa__ todas as tabelas `database/schema` no banco de dados.                   |
+<a id="rotas"></a>
 | php cli     | __--db__ | __reset__    |	__Recarrega__ todas as tabelas `database/schema` no banco de dados.               |
 | php cli     | __--db__ | __load__     | __Insere__ todas as informações `database/information` para o banco de dados.     |
 | php cli     | __--db__ | __fresh__    |	__Remove__ todas as informações `database/information` no banco de dados.         |
