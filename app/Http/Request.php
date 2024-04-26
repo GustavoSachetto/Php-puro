@@ -77,11 +77,11 @@ class Request
     }
 
     /**
-     * Método reponsável por definir o usuário
+     * Método reponsável por pegar o usuário
      */
-    public function getUser(User $user): User
+    public function getUser(): User
     {
-        return $user;
+        return $this->user;
     }
 
     /**
