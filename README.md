@@ -17,7 +17,7 @@ Principais duvidas sobre o framework:
 - [Configurar middlewares e outras coisas](#config)
   
 <a id="database"></a>
-
+-
 
 ## Banco de dados
 ### Criação das tabelas
