@@ -11,8 +11,8 @@ Principais duvidas sobre o framework:
 - [Como definir rotas](#rotas)
 - [Comandos do terminal](#comandos)
 - [Como montar um Controller](#controller)
-- [Como criar tabelas no banco de dados](#database)
   <a id="database"></a>
+- [Como criar tabelas no banco de dados](#database)
 - [Configurar middlewares e outras coisas](#config)
 
 ## Banco de dados
@@ -73,6 +73,7 @@ __Exemplo método down:__
 
 Comandos relacionados ao banco de dados:
 
+<a id="rotas"></a>
 | Base        | Comando  | Argumento    | Função                                                                                     |
 | :---------- | -------- | ------------ | :----------------------------------------------------------------------------------------- |
 | php cli     | __--db__ | __set__      |	__Carrega__ todas as tabelas `database/schema` no banco de dados.                 |
@@ -80,8 +81,6 @@ Comandos relacionados ao banco de dados:
 | php cli     | __--db__ | __reset__    |	__Recarrega__ todas as tabelas `database/schema` no banco de dados.               |
 | php cli     | __--db__ | __load__     | __Insere__ todas as informações `database/information` para o banco de dados.     |
 | php cli     | __--db__ | __fresh__    |	__Remove__ todas as informações `database/information` no banco de dados.         |
-
-<a id="rotas"></a>
 
 ## Rotas
 
