@@ -2,6 +2,19 @@
 Framework desenvolvido em PHP "puro" prezando a facilidade de trabalhar com a __programação orientada a objetos (POO)__ da versão 8.2.1 do PHP.
 Esse framework é constituido na arquitetura __Model View Controller (MVC)__ que promove a modularidade, escalabilidade e a manutenção.
 
+<a name="ancora"></a>
+## Documentação:
+Principais duvidas sobre o framework:
+
+- [Como definir rotas](#ancora3)
+- [Comandos do terminal](#ancora2)
+- [Como criar uma model](#ancora4)
+- [Como renderizar uma view](#ancora4)
+- [Como montar um Controller](#ancora4)
+- [Como criar tabelas no banco de dados](#ancora1)
+- [Configurar middlewares e banco de dados](#ancora4)
+  
+
 ## Banco de dados
 ### Criação das tabelas
 O esquema do seu banco de dados deve ficar na pasta `database/schema`, onde todos os arquivos de tabelas devem estar separados na ordem de criação ASC.
@@ -54,7 +67,7 @@ __Exemplo método down:__
     }
 ```
 
-## Comandos
+## Comandos do Terminal
 
 Comandos relacionados ao banco de dados:
 
