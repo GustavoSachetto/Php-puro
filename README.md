@@ -12,9 +12,8 @@ Principais duvidas sobre o framework:
 - [Comandos do terminal](#comandos)
 - [Como montar um Controller](#controller)
 - [Como criar tabelas no banco de dados](#database)
+  <a id="database"></a>
 - [Configurar middlewares e outras coisas](#config)
-  
-<a id="database"></a>
 
 ## Banco de dados
 
@@ -62,14 +61,13 @@ __Exemplo método up:__
 ```
 
 __Exemplo método down:__
+<a id="comandos"></a>
 ```
     public function down(): void
     {
         (new Database('nomeDaTabela'))->delete('id = 1 ');
     }
 ```
-
-<a id="comandos"></a>
 
 ## Comandos do Terminal
 
