@@ -18,6 +18,7 @@ Principais duvidas sobre o framework:
   
 <a id="database"></a>
 
+
 ## Banco de dados
 ### Criação das tabelas
 O esquema do seu banco de dados deve ficar na pasta `database/schema`, onde todos os arquivos de tabelas devem estar separados na ordem de criação ASC.
