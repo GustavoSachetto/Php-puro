@@ -70,16 +70,16 @@ class User
     /**
      * Método reponsável por retornar um usuário com base em seu e-mail
      */
-    public static function getUserByEmail(string $email): User
+    public static function getUserByEmail(string $email): User|string
     {
-        return (new Database('user'))->select('email = "'.$email.'"')->fetchObject(self::class);
+        return (new Database('user'))->select("email = '{$email}'")->fetchObject(self::class);
     }
 
     /**
      * Método reponsável por retornar um usuário com base no seu ID
      */
-    public static function getUserById(int $id): User
+    public static function getUserById(int $id): User|string
     {
-        return self::getUsers('id = '.$id)->fetchObject(self::class);
+        return self::getUsers("id = {$id}")->fetchObject(self::class);
     }
 }
