@@ -4,7 +4,7 @@ Esse framework é constituido na arquitetura __Model View Controller (MVC)__ que
 
 #framework #php #mvc
 
-## Comandos para iniciar:
+## Comandos iniciais:
 ```
 composer install
 php cli -d set
