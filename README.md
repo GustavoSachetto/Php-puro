@@ -4,6 +4,13 @@ Esse framework é constituido na arquitetura __Model View Controller (MVC)__ que
 
 #framework #php #mvc
 
+## Comandos para iniciar:
+```
+composer install
+php cli -d	set
+php cli -d	load
+```
+
 <a name="ancora"></a>
 ## Documentação:
 Principais duvidas sobre o framework:
