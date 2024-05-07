@@ -17,7 +17,7 @@ return new class extends Interaction
             $table->varchar('email', 255)->unique()->notNull();
             $table->boolean('admin_access')->notNull();
             $table->varchar('password_hash', 255)->notNull();
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default('false');
         });
     }
 
