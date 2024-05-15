@@ -18,8 +18,10 @@ Principais duvidas sobre o framework:
 - [Como definir rotas](#rotas)
 - [Comandos do terminal](#comandos)
 - [Como montar um Controller](#controller)
-  <a id="database"></a>
-- [Como criar tabelas no banco de dados](#database)
+- [Como montar um Model](#model)
+- [Como inserir e buscar dados no através do controller](#database)
+  <a id="banco"></a>
+- [Como criar tabelas no banco de dados](#banco)
 - [Configurar middlewares e outras coisas](#config)
 
 ## Banco de dados
@@ -32,23 +34,23 @@ Para definir uma nova tabela deve seguir a padronização abaixo do __método up
 
 __Exemplo método up:__
 ```
- public function up(): void
-    {
-        (new Database)->create('nomeDaTabela', function(Blueprint $table) {
-            $table->id();
-            $table->varchar('nomeDaColuna', 100)->notNull();
-        });
-    }
+public function up(): void
+{
+    (new Database)->create('nomeDaTabela', function(Blueprint $table) {
+        $table->id();
+        $table->varchar('nomeDaColuna', 100)->notNull();
+    });
+}
 
 ```
 
 __Exemplo método down:__
 
 ```
-    public function down(): void
-    {
-        (new Database)->dropIfExists('nomeDaTabela');
-    }
+public function down(): void
+{
+    (new Database)->dropIfExists('nomeDaTabela');
+}
 
 ```
 ### Insersão dos dados
@@ -59,21 +61,21 @@ Assim como na criação das tabelas, também é preciso definir os __métodos up
 
 __Exemplo método up:__
 ```
-    public function up(): void
-    {
-        (new Database('nomeDaTabela'))->insert([
-            'nomeDaColuna' => 'valor a ser inserido'
-        ]);
-    }
+public function up(): void
+{
+    (new Database('nomeDaTabela'))->insert([
+        'nomeDaColuna' => 'valor a ser inserido'
+    ]);
+}
 ```
 
 __Exemplo método down:__
 <a id="comandos"></a>
 ```
-    public function down(): void
-    {
-        (new Database('nomeDaTabela'))->delete('id = 1 ');
-    }
+public function down(): void
+{
+    (new Database('nomeDaTabela'))->delete('id = 1 ');
+}
 ```
 
 ## Comandos do Terminal
@@ -140,6 +142,85 @@ Todo controller tem 5 métodos por padrão:
 * __set__ - cadastra valores no controller
 * __edit__ - edita valores no controller
 * __delete__ - deleta valores no controller
+
+<a id="model"></a>
+
+## Model
+
+Os modelos devem ficar dentro da pasta `app/Model/Entity`.
+
+Toda model tem 4 métodos por padrão:
+* __create__ - cadastra os valores no banco 
+* __update__ - atualiza os valores no banco
+* __delete__ - deleta os valores no banco
+* __getNomeDaClasse__ - busca os valores no banco
+
+Toda model deve ser gerada para comportar uma tabela em específico, por exemplo se eu tenho uma tabela: "post" com as colunas: "id" (identificador da tabela, int unsigned)
+"title" (titulo, char 20) e "content" (conteúdo, texto). Deve ser gerado uma model nesse formato:
+
+__Exemplo de Classe:__
+
+```
+class Post
+{
+    public int $id; // coluna id associada no banco
+    public string $title; // coluna title associada no banco
+    public string $content; // coluna content associada no banco
+
+    public function create(): bool
+    {
+        $this->id = (new Database('post'))->insert([
+            'title'   => $this->title, // referenciando nome da coluna com o valor
+            'content' => $this->content 
+        ]);
+    
+        return true;
+    }
+}
+```
+
+__Exemplo método CREATE:__
+```
+public function create(): bool
+{
+    $this->id = (new Database('nomeDaTabela'))->insert([
+        'nomeDaColuna' => $this->atributoDaClasse
+    ]);
+
+    return true;
+}
+```
+
+__Exemplo método UPDATE:__
+```
+public function update(): bool
+{
+    return (new Database('nomeDaTabela'))->update('nomeDaColuna = '.$this->atributoDaClasse, [
+        'nomeDaColuna' => $this->atributoDaClasse
+    ]);
+}
+```
+
+__Exemplo método DELETE:__
+```
+public function delete(): bool
+{
+    return (new Database('nomeDaTabela'))->securityDelete('nomeDaColuna = '.$this->atributoDaClasse);
+}
+```
+
+__Exemplo método GET:__
+```
+public static function getTableName(
+    string $where = null,
+    string $order = null, 
+    string $limit = null, 
+    string $fields = '*'
+    ): PDOStatement
+{
+    return (new Database('nomeDaTabela'))->select($where, $order, $limit, $fields);
+}
+```
 
 <a id="config"></a>
 
