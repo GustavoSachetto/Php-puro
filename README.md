@@ -17,9 +17,12 @@ Principais duvidas sobre o framework:
 
 - [Como definir rotas](#rotas)
 - [Comandos do terminal](#comandos)
+- [Como utilizar Requisições POST ou GET](#request)
 - [Como montar um Controller](#controller)
 - [Como montar um Model](#model)
-- [Como inserir e buscar dados no através do controller](#database)
+- [Como renderizar uma View](#view)
+- [Como declarar variáveis no documento html](#view)
+- [Como inserir e buscar dados no através do controller](#controller)
   <a id="banco"></a>
 - [Como criar tabelas no banco de dados](#banco)
 - [Configurar middlewares e outras coisas](#config)
@@ -130,18 +133,32 @@ $obRouter->post('/url/exemplo', [
 ]);
 ```
 
-<a id="controller"></a>
+<a id="request"></a>
 
-## Controller
+## Request
 
-Os controllers devem ficar dentro da pasta `app/Controller`.
+As requisições tem por padrão alguns métodos que podem ser acessados pelo controller:
+* __getPostVars__ - retorna todas as variáveis __POST__ enviadas pela requisição
+* __getQueryParams__ - retorna todas as variáveis __GET__ enviadas pela requisição
+* __getUser__ - retorna uma instância de usuário autenticado no site
+* __setUser__ - seta uma instância de usuário
+* __getHeaders__ - retorna os headers da requisição
+* __getUri__ - retorna a URI da requisição
+* __getHttpMethod__ - retorna o método HTTP da requisição
+* __getRouter__ - retorna a instância de Router
 
-Todo controller tem 5 métodos por padrão:
-* __get__ - retorna um valor padrão do controller
-* __fetch__ - busca um valor específico do controller por algum ID
-* __set__ - cadastra valores no controller
-* __edit__ - edita valores no controller
-* __delete__ - deleta valores no controller
+Como acessar esses métodos?
+
+__Exemplo do getPostVars:__
+
+* Através do parametro request passado para o controller é possivel acessar qualquer um dos métodos acima.
+  
+```
+public function metodoExemplo(Request $request): void
+{
+    $request->getPostVars();
+}
+```
 
 <a id="model"></a>
 
@@ -155,8 +172,11 @@ Toda model tem 4 métodos por padrão:
 * __delete__ - deleta os valores no banco
 * __getNomeDaClasse__ - busca os valores no banco
 
-Toda model deve ser gerada para comportar uma tabela em específico, por exemplo se eu tenho uma tabela: "post" com as colunas: "id" (identificador da tabela, int unsigned)
-"title" (titulo, char 20) e "content" (conteúdo, texto). Deve ser gerado uma model nesse formato:
+__Declaracação de uma classe model:__
+Toda model deve ser gerada para comportar uma tabela em específico. 
+
+* __Por exemplo__ se eu tenho uma tabela: __"post"__ com as colunas: __"id"__ (identificador da tabela, int unsigned)
+__"title"__ (titulo, char 20) e __"content"__ (conteúdo, texto). Deve ser gerado uma model nesse formato:
 
 __Exemplo de Classe:__
 
@@ -219,6 +239,81 @@ public static function getTableName(
     ): PDOStatement
 {
     return (new Database('nomeDaTabela'))->select($where, $order, $limit, $fields);
+}
+```
+
+<a id="view"></a>
+
+## View
+
+A view serve para renderizar variáveis decladas no html a serem substituidas por um conteúdo vindo do banco de dados.
+
+* Para se declarar uma variável no conteúdo html deve seguir este modelo de declaração: __{{nomeDaVariavel}}__
+
+__Exemplo renderizando conteúdo da View:__
+```
+public static function getPage(): string 
+{
+    // diretorio da pasta: resources/view
+    return View::render('pasta/exemploArquivoHtml', [
+        'nomeDaVariavel' => $conteudoAlterado
+    ]);
+}
+```
+<a id="controller"></a>
+
+## Controller
+
+Os controllers devem ficar dentro da pasta `app/Controller`.
+
+Todo controller tem 5 métodos por padrão:
+* __get__ - retorna um valor padrão do controller
+* __fetch__ - busca um valor específico do controller por algum ID
+* __set__ - cadastra valores no controller
+* __edit__ - edita valores no controller
+* __delete__ - deleta valores no controller
+
+__Exemplo método get:__
+```
+public static function get(): array
+{   
+    $itens = [];
+    $results = EntityExemplo::getExemplos(); // model Exemplo
+
+    while($obExemplo = $results->fetchObject(EntityExemplo::class)) {
+        $itens[] = [
+            'nomeDaColuna' => $obExemplo->atributoDaClasse
+        ];
+    }
+
+    return $itens;
+}
+```
+
+__Exemplo método post:__
+```
+public static function set(Request $request): bool
+{   
+    $vars = $request->getPostVars();
+
+    $obExemplo = new EntityExemplo;
+    $obExemplo->atributoDaClasse = $vars['valorPost'];
+    $obExemplo->create();
+
+    return true;
+}
+```
+
+__Exemplo método delete:__
+```
+public static function delete(Request $request, int $id): bool
+{   
+    $vars = $request->getPostVars();
+
+    $obExemplo = EntityExemplo::getExemplos('nomeDaColuna = '.$id); // busca o valor pelo id
+    $obExemplo->delete();
+
+    return true;
 }
 ```
 
