@@ -73,7 +73,7 @@ public function up(): void
 ```
 
 __Exemplo método down:__
-<a id="comandos"></a>
+
 ```
 public function down(): void
 {
@@ -81,9 +81,13 @@ public function down(): void
 }
 ```
 
+<a id="comandos"></a>
+
+.
+
 ## Comandos do Terminal
 
-Comandos do banco de dados:
+### Comandos do banco de dados:
 
 | Base        | Comando  | Argumento    | Função                                                                      |
 | :---------- | -------- | ------------ | :-------------------------------------------------------------------------- |
@@ -93,7 +97,7 @@ Comandos do banco de dados:
 | php cli     | __--db__ | __load__     | __Insere__ as informações `database/information` para o banco de dados.     |
 | php cli     | __--db__ | __fresh__    | __Remove__ as informações `database/information` no banco de dados.         |
 
-Comandos para criação de arquivos:
+### Comandos para criação de arquivos:
 
 | Base        | Comando     | Argumento    | Função                                                                      |
 | :---------- | ----------- | ------------ | :-------------------------------------------------------------------------- |
@@ -145,6 +149,8 @@ $obRouter->post('/url/exemplo', [
 
 <a id="request"></a>
 
+.
+
 ## Request
 
 As requisições tem por padrão alguns métodos que podem ser acessados pelo controller:
@@ -171,6 +177,8 @@ public function metodoExemplo(Request $request): void
 ```
 
 <a id="model"></a>
+
+.
 
 ## Model
 
@@ -254,6 +262,8 @@ public static function getTableName(
 
 <a id="view"></a>
 
+.
+
 ## View
 
 A view serve para renderizar variáveis decladas no html a serem substituidas por um conteúdo vindo do banco de dados.
@@ -271,6 +281,8 @@ public static function getPage(): string
 }
 ```
 <a id="controller"></a>
+
+.
 
 ## Controller
 
