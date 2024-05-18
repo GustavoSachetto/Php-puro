@@ -3,18 +3,19 @@
 namespace App\Common\CommandLine;
 
 use App\Common\CommandLine\Interaction\Database as DBInteraction;
+use App\Common\CommandLine\Interaction\Builder as BuilderInteraction;
 
 class Command
 {
     /** 
      * Comandos permitidos no terminal
     */
-    private static string $short = 'd:';
+    private static string $short = 'd:b:';
     
     /** 
      * Comandos permitidos no terminal
     */
-    private static array $long = ['db:'];
+    private static array $long = ['db:', 'build:'];
 
     /** 
      * Método responsável por processar os comandos enviados no terminal
@@ -28,6 +29,11 @@ class Command
             case 'd':
             case 'db':
                 DBInteraction::verifyArgument($options[$command]);
+                break;
+
+            case 'b':
+            case 'build':
+                BuilderInteraction::verifyArgument($options[$command]);
                 break;
             
             default:

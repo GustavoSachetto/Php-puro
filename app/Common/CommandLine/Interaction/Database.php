@@ -7,14 +7,8 @@ use App\Common\CommandLine\Required\Interaction;
 
 class Database
 {
-    /** 
-     * Nome dos arquivos incluidos
-    */
     private static array $fileName;
 
-    /** 
-     * Método responsável por incluir os arquivos
-    */
     private static function includeFiles(string $dir): void
     {
         $iterator = new FilesystemIterator("./database/$dir");
@@ -25,10 +19,7 @@ class Database
         }
     }
 
-    /** 
-     * Método responsável por setar a interação no banco de dados
-    */
-    public static function setInteraction(string $type, string $dir): void
+    private static function setInteraction(string $type, string $dir): void
     {
         self::includeFiles($dir);
         $interactions = Interaction::$interactions;
