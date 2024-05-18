@@ -103,7 +103,7 @@ public function down(): void
 | :---------- | ----------- | ------------ | :-------------------------------------------------------------------------- |
 | php cli     | __--build__ | __controller__ | __Cria__ um novo controlador na pasta `app/Controller`.                 |
 | php cli     | __--build__ | __model__      | __Cria__ um novo modelo na pasta `app/Model/Entity`.                   |
-| php cli     | __--build__ | __table__      | __Cria__ uma nova tabela na pasta `database/schema e information`. |
+| php cli     | __--build__ | __table__      | __Cria__ uma nova tabela na pasta `database/schema` e `database/information`. |
 
 __Utilitário:__ para facilitar se você colocar o `argumento:diretorio` será criado um novo arquivo já renomeado.
 
