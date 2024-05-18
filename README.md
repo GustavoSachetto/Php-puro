@@ -1,4 +1,4 @@
-# Php-puro
+# Php-puro v1.1
 Framework desenvolvido em PHP "puro" prezando a facilidade de trabalhar com a __programação orientada a objetos (POO)__ da versão 8.2.1 do PHP.
 Esse framework é constituido na arquitetura __Model View Controller (MVC)__ que promove a facil modularidade, escalabilidade e manutenção de sistemas web.
 
@@ -103,7 +103,7 @@ public function down(): void
 | :---------- | ----------- | ------------ | :-------------------------------------------------------------------------- |
 | php cli     | __--build__ | __controller__ | __Cria__ um novo controlador na pasta `app/Controller`.                 |
 | php cli     | __--build__ | __model__      | __Cria__ um novo modelo na pasta `app/Model/Entity`.                   |
-| php cli     | __--build__ | __table__      | __Cria__ uma nova tabela na pasta `database`.                   |
+| php cli     | __--build__ | __table__      | __Cria__ uma nova tabela na pasta `database/schema e information`. |
 
 __Utilitário:__ para facilitar se você colocar o `argumento:diretorio` será criado um novo arquivo já renomeado.
 
