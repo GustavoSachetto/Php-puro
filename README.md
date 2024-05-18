@@ -83,15 +83,25 @@ public function down(): void
 
 ## Comandos do Terminal
 
-Comandos relacionados ao banco de dados:
+Comandos do banco de dados:
 
-| Base        | Comando  | Argumento    | Função                                                                                     |
-| :---------- | -------- | ------------ | :----------------------------------------------------------------------------------------- |
-| php cli     | __--db__ | __set__      |	__Carrega__ todas as tabelas `database/schema` no banco de dados.                 |
-| php cli     | __--db__ | __drop__     | __Dropa__ todas as tabelas `database/schema` no banco de dados.                   |
-| php cli     | __--db__ | __reset__    |	__Recarrega__ todas as tabelas `database/schema` no banco de dados.               |
-| php cli     | __--db__ | __load__     | __Insere__ todas as informações `database/information` para o banco de dados.     |
-| php cli     | __--db__ | __fresh__    |	__Remove__ todas as informações `database/information` no banco de dados.         |
+| Base        | Comando  | Argumento    | Função                                                                      |
+| :---------- | -------- | ------------ | :-------------------------------------------------------------------------- |
+| php cli     | __--db__ | __set__      | __Carrega__ as tabelas `database/schema` no banco de dados.                 |
+| php cli     | __--db__ | __drop__     | __Dropa__ as tabelas `database/schema` no banco de dados.                   |
+| php cli     | __--db__ | __reset__    | __Recarrega__ as tabelas `database/schema` no banco de dados.               |
+| php cli     | __--db__ | __load__     | __Insere__ as informações `database/information` para o banco de dados.     |
+| php cli     | __--db__ | __fresh__    | __Remove__ as informações `database/information` no banco de dados.         |
+
+Comandos para criação de arquivos:
+
+| Base        | Comando     | Argumento    | Função                                                                      |
+| :---------- | ----------- | ------------ | :-------------------------------------------------------------------------- |
+| php cli     | __--build__ | __controller__ | __Cria__ um novo controlador na pasta `app/Controller`.                 |
+| php cli     | __--build__ | __model__      | __Cria__ um novo modelo na pasta `app/Model/Entity`.                   |
+| php cli     | __--build__ | __table__      | __Cria__ uma nova tabela na pasta `database`.                   |
+
+__Utilitario__ para facilitar se você colocar o `argumento:diretorio` será criado um novo arquivo já renomeado.
 
 <a id="rotas"></a>
 
