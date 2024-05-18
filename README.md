@@ -105,7 +105,7 @@ public function down(): void
 | php cli     | __--build__ | __model__      | __Cria__ um novo modelo na pasta `app/Model/Entity`.                   |
 | php cli     | __--build__ | __table__      | __Cria__ uma nova tabela na pasta `database`.                   |
 
-__Utilitario__ para facilitar se você colocar o `argumento:diretorio` será criado um novo arquivo já renomeado.
+__Utilitario:__ para facilitar se você colocar o `argumento:diretorio` será criado um novo arquivo já renomeado.
 
 <a id="rotas"></a>
 
