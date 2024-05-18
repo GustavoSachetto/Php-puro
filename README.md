@@ -1,6 +1,6 @@
 # Php-puro
 Framework desenvolvido em PHP "puro" prezando a facilidade de trabalhar com a __programação orientada a objetos (POO)__ da versão 8.2.1 do PHP.
-Esse framework é constituido na arquitetura __Model View Controller (MVC)__ que promove a modularidade, escalabilidade e a manutenção.
+Esse framework é constituido na arquitetura __Model View Controller (MVC)__ que promove a facil modularidade, escalabilidade e manutenção de sistemas web.
 
 #framework #php #mvc
 
