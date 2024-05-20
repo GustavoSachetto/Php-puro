@@ -1,20 +1,22 @@
 <?php
 
-namespace App\Http\Middleware\AccessLevel\User;
+namespace App\Http\Middleware\AccessLevel;
 
 use Closure;
 use App\Http\Request;
 use App\Http\Response;
-use App\Http\Middleware\AccessLevel\UserStatus;
+use App\Session\login\User as SessionLoginUser;
 
-class RequireLogout extends UserStatus
+class RequireLogin
 {
     /** 
      * Método responsável por verificar se o usuáro está logado, se estiver, ele será redirecionado
     */
     private function userIsLogged(Request $request): void
     {
-        $this->isLogged($request, 'default', '');
+        if (!SessionLoginUser::isLogged()) {
+            $request->getRouter()->redirect('/login');
+        }     
     }
 
     /**

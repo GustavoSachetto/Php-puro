@@ -27,9 +27,9 @@ View::init([
 
 MiddlewareQueue::setMap([
     'maintenance'         => \App\Http\Middleware\Maintenance::class,
-    'require-admin-login' => \App\Http\Middleware\AccessLevel\User\RequireAdminLogin ::class,
-    'require-login'       => \App\Http\Middleware\AccessLevel\User\RequireLogin ::class,
-    'require-logout'      => \App\Http\Middleware\AccessLevel\User\RequireLogout::class,
+    'require-admin-login' => \App\Http\Middleware\AccessLevel\RequireAdminLogin ::class,
+    'require-login'       => \App\Http\Middleware\AccessLevel\RequireLogin ::class,
+    'require-logout'      => \App\Http\Middleware\AccessLevel\RequireLogout::class,
     'jwt-auth'            => \App\Http\Middleware\JWTAuth::class,
     'cache'               => \App\Http\Middleware\Cache::class
 ]);

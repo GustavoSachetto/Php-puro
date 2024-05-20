@@ -66,7 +66,7 @@ class User
     {
         self::init();
 
-        unset($_SESSION['admin']['usuario']);
+        unset($_SESSION['user']);
         return true;
     }
 }
