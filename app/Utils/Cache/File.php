@@ -7,30 +7,18 @@ use Closure;
 class File
 {
     /**
-     * Método responsável por validar o tempo de expiração do conteúdo no cache
+     * Método responsável por obter uma informação do cache
      */
-    private static function validateCacheExpiration(string $cacheFile, int $expiration): bool
+    public static function getCache(string $hash, int $expiration, Closure $function): mixed
     {
-        $createTime = filemtime($cacheFile);
-        $diffTime = time() - $createTime;
-        
-        if ($diffTime > $expiration) return false;
+        if ($content = self::getContentCache($hash, $expiration)) {
+            return $content;
+        } 
 
-        return true;
-    }
+        $content = $function();
+        self::storageCache($hash, $content);
 
-    /**
-     * Método responsável por retornar o caminho até o arquivo de cache
-     */
-    private static function getFilePath(string $hash): string 
-    {
-        $dir = getenv('CACHE_DIR');
-
-        if (!file_exists($dir)) {
-            mkdir($dir,0755,true);
-        }
-
-        return $dir.'/'.$hash;
+        return $content;
     }
 
     /**
@@ -59,17 +47,29 @@ class File
     }
 
     /**
-     * Método responsável por obter uma informação do cache
+     * Método responsável por retornar o caminho até o arquivo de cache
      */
-    public static function getCache(string $hash, int $expiration, Closure $function): mixed
+    private static function getFilePath(string $hash): string 
     {
-        if ($content = self::getContentCache($hash, $expiration)) {
-            return $content;
-        } 
+        $dir = getenv('CACHE_DIR');
 
-        $content = $function();
-        self::storageCache($hash, $content);
+        if (!file_exists($dir)) {
+            mkdir($dir,0755,true);
+        }
 
-        return $content;
+        return $dir.'/'.$hash;
+    }
+
+    /**
+     * Método responsável por validar o tempo de expiração do conteúdo no cache
+     */
+    private static function validateCacheExpiration(string $cacheFile, int $expiration): bool
+    {
+        $createTime = filemtime($cacheFile);
+        $diffTime = time() - $createTime;
+        
+        if ($diffTime > $expiration) return false;
+
+        return true;
     }
 }
