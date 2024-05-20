@@ -3,6 +3,7 @@
 namespace App\Controller\Api;
 
 use App\Controller\Api;
+use App\Http\Request;
 use App\Model\Entity\User as EntityUser;
 
 class UserController extends Api
@@ -29,7 +30,7 @@ class UserController extends Api
     /**
      * Método responsável por setar um novo usuário
      */
-    public static function set($request): void
+    public static function set(Request $request): void
     {
         // código a ser criado
     }   
@@ -37,7 +38,7 @@ class UserController extends Api
     /**
      * Método responsável por editar um usuário pelo seu id
      */
-    public static function edit($request, $id): void
+    public static function edit(Request $request, $id): void
     {
         // código a ser criado
     }
@@ -45,7 +46,7 @@ class UserController extends Api
     /**
      * Método responsável por deletar um usuário pelo seu id
      */
-    public static function delete($request, $id): void
+    public static function delete(Request $request, $id): void
     {
         // código a ser criado
     }
@@ -53,7 +54,7 @@ class UserController extends Api
     /**
      * Método responsável por retornar os detalhes da api
      */
-    public static function details($request): array
+    public static function details(Request $request): array
     {
         return parent::getDetails();
     }
