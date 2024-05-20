@@ -4,7 +4,7 @@ namespace App\Controller\Pages;
 
 use App\Http\Request;
 
-class Controller
+class FileController
 {
     /**
      * Método responsável por retornar o conteúdo

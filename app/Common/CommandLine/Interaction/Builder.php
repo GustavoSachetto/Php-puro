@@ -38,14 +38,14 @@ class Builder
 
         switch ($argumentFilter) {
             case 'model':
-                self::setNewFile('Model', 'app/Model/Entity/', $rename);
+                self::setNewFile('FileModel', 'app/Model/Entity/', $rename);
                 break;
             case 'controller':
-                self::setNewFile('Controller', 'app/Controller/', $rename);
+                self::setNewFile('FileController', 'app/Controller/', $rename);
                 break;
             case 'table':
-                self::setNewFile('Table', 'database/schema/', $rename);
-                self::setNewFile('Information', 'database/information/', $rename);
+                self::setNewFile('FileTable', 'database/schema/', $rename);
+                self::setNewFile('FileInformation', 'database/information/', $rename);
                 break;
             
             default:
