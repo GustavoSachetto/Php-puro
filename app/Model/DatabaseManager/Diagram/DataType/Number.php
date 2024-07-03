@@ -80,7 +80,7 @@ trait Number
      */
     public function double(string $columnName): Key
     {
-        return Blueprint::generateColumn($columnName, 'double',);
+        return Blueprint::generateColumn($columnName, 'double');
     }
 
     /**
