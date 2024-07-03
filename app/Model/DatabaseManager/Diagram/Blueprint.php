@@ -39,7 +39,7 @@ class Blueprint
         bool $increment = false
         ): Key
     {
-        $length    == null ? $length     = '' : $length    = "($length)";
+        $length    == null ? $length     = '' : $length    = "(".str_replace(".", ",", $length).")";
         $unsigned  == false ? $unsigned  = '' : $unsigned  = "unsigned";
         $increment == false ? $increment = '' : $increment = "auto_increment";
         

@@ -54,7 +54,7 @@ class User
     /**
      * Método responsável por retornar o usuário que está logado
      */
-    public static function getLogged(): User
+    public static function getLogged(): array
     {
         return self::isLogged() ? $_SESSION['user'] : false;
     }

@@ -38,6 +38,11 @@ class Request
     private array $postVars = [];
 
     /**
+     * Variáveis recebidas no FILES da página ($_FILES)
+     */
+    private array $fileVars = [];
+
+    /**
      * Cabeçalho da requisição
      */
     private array $headers = [];
@@ -49,6 +54,7 @@ class Request
     {
         $this->router      = $router;
         $this->queryParams = $_GET ?? [];
+        $this->fileVars    = $_FILES ?? [];
         $this->headers     = getallheaders();
         $this->httpMethod  = $_SERVER['REQUEST_METHOD'] ?? '';
         $this->setUri();
@@ -140,5 +146,13 @@ class Request
     public function getPostVars(): array
     {
         return $this->postVars;
+    }
+
+    /** 
+     * Método responsável por retornar as variáveis FILES da requisição
+     */
+    public function getFileVars(): array
+    {
+        return $this->fileVars;
     }
 }
