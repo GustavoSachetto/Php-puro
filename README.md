@@ -20,6 +20,7 @@ Principais duvidas sobre o framework:
 - [Como utilizar Requisições POST ou GET](#request)
 - [Como montar um Controller](#controller)
 - [Como montar um Model](#model)
+- [Como criar um novo Middleware](#middleware)
 - [Como renderizar uma View](#view)
 - [Como declarar variáveis no documento html](#view)
 - [Como inserir e buscar dados no através do controller](#controller)
@@ -260,8 +261,46 @@ public static function getTableName(
 }
 ```
 
+<a id="middleware"></a>
+
+.
+
+## Middleware
+
+Os middlewares são os intermediários das rotas e ficam na pasta `app/Http/Middleware` da aplicação, são configurados no arquivo `include/app.php` onde deve se especificar um nome único para cada middleware. 
+
+Todo middleware deve ter um método padrão:
+
+* __handle__ - serve para chamar o próximo middleware (se ouver) se não deve chamar a rota solicitada
 <a id="view"></a>
 
+__Exemplo de middleware:__
+```
+class MiddlewareExemplo
+{
+    private function checkStatus(Request $request): void
+    {
+        $vars = $request->getPostVars();
+
+        if ($vars['status'] == 'error') {
+            throw new Exception("A página está com erro");
+        }
+    }
+
+    public function handle(Request $request, Closure $next): Response
+    {
+        $this->checkStatus($request); // se o status não estiver com erro carrega a aplicação
+        return $next($request);
+    }
+}
+```
+
+__Configurando middleware:__
+```
+MiddlewareQueue::setMap([
+    'middleware-exemplo' => \App\Http\Middleware\MiddlewareExemplo::class
+]);
+```
 .
 
 ## View
