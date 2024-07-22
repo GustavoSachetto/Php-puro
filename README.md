@@ -272,7 +272,6 @@ Os middlewares são os intermediários das rotas e ficam na pasta `app/Http/Midd
 Todo middleware deve ter um método padrão:
 
 * __handle__ - serve para chamar o próximo middleware (se ouver) se não, deve chamar a rota solicitada
-<a id="view"></a>
 
 __Exemplo de middleware:__
 ```
@@ -301,6 +300,9 @@ MiddlewareQueue::setMap([
     'middleware-exemplo' => \App\Http\Middleware\MiddlewareExemplo::class
 ]);
 ```
+
+<a id="view"></a>
+
 .
 
 ## View
