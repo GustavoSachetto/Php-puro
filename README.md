@@ -1,5 +1,5 @@
 
-![logo](https://github.com/user-attachments/assets/fab187db-88d8-418c-ba53-973b18acf2b3)
+![teste](https://github.com/user-attachments/assets/70f50c86-4908-49ae-9d6a-37728c7d8b9e)
 
 # PHP Puro (Framework) - Versão 1.1
 Framework desenvolvido em PHP "puro" prezando a facilidade de trabalhar com a __programação orientada a objetos (POO)__ da versão 8.2.1 do PHP.
