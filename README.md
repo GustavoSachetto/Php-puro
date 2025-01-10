@@ -1,7 +1,7 @@
 
 ![teste](https://github.com/user-attachments/assets/70f50c86-4908-49ae-9d6a-37728c7d8b9e)
 
-# PHP Puro (Framework) - Versão 1.1
+# Framework - Versão 1.1
 Framework desenvolvido em PHP "puro" prezando a facilidade de trabalhar com a __programação orientada a objetos (POO)__ da versão 8.2.1 do PHP.
 Esse framework é constituido na arquitetura __Model View Controller (MVC)__ que promove a facil modularidade, escalabilidade e manutenção de sistemas web.
 
